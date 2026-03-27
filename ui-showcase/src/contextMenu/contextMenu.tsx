@@ -67,12 +67,13 @@ export function ContextMenu({
   const menuRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
 
-  const { focusMenuItem, handleMenuKeyDown, handleTriggerKeyDown } =
-    useMenuKeyboardNavigation({
-      handleClose,
-      menuRef,
-      openAtPosition,
-    });
+  const { focusMenuItem } = useMenuKeyboardNavigation({
+    handleClose,
+    menuRef,
+    open,
+    openAtPosition,
+    triggerRef,
+  });
 
   useMenuFocusRestore({
     menuRef,
@@ -95,7 +96,6 @@ export function ContextMenu({
         ref={triggerRef}
         className={styles.trigger}
         onContextMenu={handleOpen}
-        onKeyDown={handleTriggerKeyDown}
         role="button"
         tabIndex={0}
         aria-haspopup="menu"
@@ -129,7 +129,6 @@ export function ContextMenu({
               role="menu"
               aria-hidden={!open}
               tabIndex={open ? 0 : -1}
-              onKeyDown={handleMenuKeyDown}
               onBlur={(event) => {
                 if (
                   !event.currentTarget.contains(
