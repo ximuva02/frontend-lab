@@ -1,5 +1,5 @@
-import { Children, cloneElement, isValidElement, useRef } from "react";
-import type { ReactElement, ReactNode } from "react";
+import { useRef } from "react";
+import type { ReactNode } from "react";
 import { FloatingPortal } from "@floating-ui/react";
 
 import styles from "./contextMenu.module.css";
@@ -15,37 +15,6 @@ export interface ContextMenuProps {
   className?: string;
   menuItems?: ContextMenuItemProps[];
   onItemSelect?: (itemName: string) => void;
-}
-
-function enhanceMenuNodes(
-  nodes: ReactNode,
-  onSelect: (itemName: string) => void,
-): ReactNode {
-  return Children.map(nodes, (child) => {
-    if (!isValidElement(child)) {
-      return child;
-    }
-
-    if (child.type === ContextMenuItem) {
-      const props = child.props as ContextMenuItemProps;
-
-      return cloneElement(child as ReactElement<ContextMenuItemProps>, {
-        onSelect: (itemName, event) => {
-          props.onSelect?.(itemName, event);
-          onSelect(itemName);
-        },
-      });
-    }
-
-    const props = child.props as { children?: ReactNode };
-    if (!props.children) {
-      return child;
-    }
-
-    return cloneElement(child as ReactElement<{ children?: ReactNode }>, {
-      children: enhanceMenuNodes(props.children, onSelect),
-    });
-  });
 }
 
 export function ContextMenu({
@@ -87,8 +56,6 @@ export function ContextMenu({
     onItemSelect?.(itemName);
     handleClose();
   };
-
-  const enhancedChildren = enhanceMenuNodes(children, handleItemSelect);
 
   return (
     <>
@@ -140,7 +107,7 @@ export function ContextMenu({
               }}
               style={floatingStyles}
             >
-              {enhancedChildren}
+              {children}
               {menuItems.map((item) => (
                 <ContextMenuItem
                   key={item.name}

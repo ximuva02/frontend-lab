@@ -1,14 +1,17 @@
 import type { MouseEvent, ReactNode } from "react";
 
 import styles from "./contextMenu.module.css";
-
+import { useHotkeys, type Keys } from "react-hotkeys-hook";
 export interface ContextMenuItemProps {
   name: string;
   icon?: ReactNode;
-  shortCut?: string;
+  shortCut?: Keys;
   disabled?: boolean;
   children?: ReactNode;
-  onSelect?: (itemName: string, event: MouseEvent<HTMLButtonElement>) => void;
+  onSelect?: (
+    itemName: string,
+    event: MouseEvent<HTMLButtonElement> | KeyboardEvent,
+  ) => void;
 }
 
 export function ContextMenuItem({
@@ -26,6 +29,18 @@ export function ContextMenuItem({
 
     onSelect?.(name, event);
   };
+
+  useHotkeys(
+    shortCut || "",
+    (event) => {
+      if (disabled) {
+        return;
+      }
+
+      onSelect?.(name, event);
+    },
+    [disabled, name, onSelect],
+  );
 
   return (
     <button
