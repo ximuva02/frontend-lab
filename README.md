@@ -30,6 +30,20 @@ Beispiele:
 - TypeScript
 - Theming und Design Tokens
 
+Der Ordner enthaelt jetzt auch eine einfache statische Startseite fuer GitHub Pages.
+
+### [toolbox](./toolbox/README.md)
+
+Kleine statische Tools und Helferlein ohne Backend.
+
+Beispiele:
+
+- Einfache HTML-Utilities
+- Kleine JavaScript-Helfer
+- Minimalbeispiele ohne Build-Schritt
+
+Der Ordner enthaelt jetzt ebenfalls eine statische Startseite fuer GitHub Pages.
+
 ### [ui-showcase](./ui-showcase/README.md)
 
 Konkrete, wiederverwendbare UI-Komponenten und Interaktionsmuster.

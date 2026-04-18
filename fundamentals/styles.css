@@ -1,0 +1,89 @@
+:root {
+  color-scheme: light;
+  --bg: #eef3f1;
+  --surface: rgba(255, 255, 255, 0.78);
+  --text: #14211b;
+  --muted: #4e6259;
+  --accent: #00684a;
+  --border: rgba(20, 33, 27, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Garamond, Georgia, serif;
+  color: var(--text);
+  background:
+    radial-gradient(
+      circle at top center,
+      rgba(0, 104, 74, 0.14),
+      transparent 28%
+    ),
+    linear-gradient(180deg, #f8fcfb 0%, var(--bg) 100%);
+}
+
+.page-shell {
+  max-width: 980px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 64px 24px 84px;
+}
+
+.hero {
+  max-width: 64ch;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.8rem, 6vw, 4.6rem);
+}
+
+.intro {
+  margin-top: 18px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.card,
+.note {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+}
+
+.card h2,
+.note h2 {
+  margin-top: 0;
+}
+
+.card p,
+.note p {
+  margin-bottom: 0;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.note {
+  margin-top: 24px;
+}
