@@ -31,6 +31,7 @@ jobs:
           set -e
           mkdir -p .site
           cp index.html .site/index.html
+          cp index.css .site/index.css
           cp -R toolbox .site/toolbox
           cp -R fundamentals .site/fundamentals
           touch .site/.nojekyll
