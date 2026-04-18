@@ -1,70 +1,51 @@
 :root {
-  color-scheme: light;
-  --bg: #f5f1e8;
-  --surface: rgba(255, 255, 255, 0.84);
-  --text: #1f1b18;
-  --muted: #66584d;
-  --accent: #9a3412;
-  --border: rgba(31, 27, 24, 0.12);
+  --brand-accent: var(--color-copper-500);
+  --brand-accent-strong: var(--color-copper-600);
+  --page-glow-light: rgba(154, 52, 18, 0.12);
+  --page-glow-dark: rgba(255, 176, 131, 0.1);
+  --page-bg-light: #f5f1e8;
+  --page-bg-alt-light: #fbf8f2;
+  --page-surface-light: rgba(255, 255, 255, 0.84);
+  --page-surface-strong-light: rgba(255, 255, 255, 0.94);
+  --page-bg-dark: #191411;
+  --page-bg-alt-dark: #241c17;
+  --page-surface-dark: rgba(42, 33, 27, 0.86);
+  --page-surface-strong-dark: rgba(56, 44, 36, 0.94);
+  --font-family-body: "Trebuchet MS", "Segoe UI", sans-serif;
+  --font-family-heading: "Trebuchet MS", "Segoe UI", sans-serif;
+  --page-width: 53.75rem;
+  --font-size-title: clamp(2.4rem, 5vw, 4rem);
 }
 
-* {
-  box-sizing: border-box;
+:root,
+:root[data-theme="light"] {
+  --page-glow: var(--page-glow-light);
+  --color-bg: var(--page-bg-light);
+  --color-bg-alt: var(--page-bg-alt-light);
+  --color-surface: var(--page-surface-light);
+  --color-surface-strong: var(--page-surface-strong-light);
 }
 
-body {
-  margin: 0;
-  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
-  color: var(--text);
-  background:
-    linear-gradient(160deg, rgba(154, 52, 18, 0.12), transparent 30%),
-    linear-gradient(180deg, #fbf8f2 0%, var(--bg) 100%);
+:root[data-theme="dark"] {
+  --page-glow: var(--page-glow-dark);
+  --color-bg: var(--page-bg-dark);
+  --color-bg-alt: var(--page-bg-alt-dark);
+  --color-surface: var(--page-surface-dark);
+  --color-surface-strong: var(--page-surface-strong-dark);
 }
 
-.page-shell {
-  max-width: 860px;
-  margin: 0 auto;
-  min-height: 100vh;
-  padding: 56px 20px 80px;
-}
-
-.eyebrow {
-  margin: 0 0 8px;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.8rem;
-  font-weight: 700;
-}
-
-h1 {
-  margin: 0;
-  font-size: clamp(2.4rem, 5vw, 4rem);
-}
-
-.intro {
-  max-width: 62ch;
-  margin: 18px 0 0;
-  line-height: 1.65;
-  color: var(--muted);
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --page-glow: var(--page-glow-dark);
+    --color-bg: var(--page-bg-dark);
+    --color-bg-alt: var(--page-bg-alt-dark);
+    --color-surface: var(--page-surface-dark);
+    --color-surface-strong: var(--page-surface-strong-dark);
+  }
 }
 
 .panel {
-  margin-top: 28px;
-  padding: 24px;
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  background: var(--surface);
-  backdrop-filter: blur(10px);
-}
-
-.panel h2 {
-  margin-top: 0;
-}
-
-.panel ul {
-  padding-left: 20px;
-  line-height: 1.7;
+  margin-top: 1.75rem;
 }
 
 #status-text {
