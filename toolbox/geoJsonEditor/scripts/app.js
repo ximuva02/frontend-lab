@@ -54,7 +54,7 @@ class GeoJsonEditorApp {
   }
 
   handleClearAll() {
-    this.store.setGeojson(createEmptyFeatureCollection());
+    this.store.reset();
     this.panel.setStatus("Alle Features entfernt.", false);
   }
 

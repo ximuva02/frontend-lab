@@ -27,6 +27,12 @@ export class GeoJsonStore {
     return cloneValue(this.geojson);
   }
 
+  reset() {
+    this.setGeojson(createEmptyFeatureCollection());
+    this.featureIdCounter = 1;
+    this.emit();
+  }
+
   setGeojson(nextGeojson) {
     if (!isFeatureCollection(nextGeojson)) {
       throw new Error("JSON muss eine GeoJSON FeatureCollection sein.");
