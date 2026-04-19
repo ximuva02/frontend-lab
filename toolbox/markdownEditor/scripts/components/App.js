@@ -16,7 +16,7 @@ import { PreviewPanel } from "./PreviewPanel.js";
 export function App() {
   const fileInputRef = useRef(null);
   const snapshot = useEditorStore(store);
-  const [mode, setMode] = useState("markdown");
+  const [mode, setMode] = useState("blocks");
 
   const handleDocumentChange = (
     nextDocument,
@@ -65,8 +65,9 @@ export function App() {
           <p className="eyebrow">frontend-lab toolbox</p>
           <h1>Markdown Editor</h1>
           <p className="intro">
-            Statische HTML-Seite mit React per CDN, Live-Preview und einem
-            ersten Blockeditor ueber derselben Markdown-Quelle.
+            Blockmodus als primäre Schreiboberfläche: Kontinuierliches Schreiben
+            in Bausteinen mit Slash-Commands. Markdown bleibt die rohe
+            Quelle und ist als sekundäre Ansicht verfügbar.
           </p>
         </div>
 
@@ -84,7 +85,7 @@ export function App() {
 
         <div className=${classNames("status-line", statusClassName)}>
           <span className="status-pill"
-            >${mode === "markdown" ? "Markdown" : "Blocks"}</span
+            >${mode === "markdown" ? "Markdown" : "Blockmodus"}</span
           >
           <span>${snapshot.status.message}</span>
         </div>
@@ -96,9 +97,9 @@ export function App() {
             <div className="panel-title-group">
               <h2>Editor</h2>
               <p>
-                ${mode === "markdown"
-                  ? "Freies Markdown fuer den direkten Eingriff."
-                  : "Blockmodus mit sichtbaren Einfuege-Aktionen und Slash-Commands fuer leere Bloecke."}
+                ${mode === "blocks"
+                  ? "Kontinuierlicher Blockmodus: schreibe in Bausteinen, nutze Slash-Commands und sichtbare Einfüge-Aktionen."
+                  : "Markdown-Ansicht: die rohe Textquelle für direkten Eingriff."}
               </p>
             </div>
             <a className="button" href="../index.html">Zur Toolbox</a>

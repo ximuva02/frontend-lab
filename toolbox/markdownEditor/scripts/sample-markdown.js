@@ -1,21 +1,20 @@
-export const sampleMarkdown = String.raw`# Projektnotiz
+export const sampleMarkdown = `# Projektnotiz
 
-Willkommen im neuen Markdown Editor. Diese Seite zeigt denselben Inhalt in zwei Perspektiven:
+Willkommen im neuen Blockmodus-Editor. Schreibe kontinuierlich — jeder Absatz ist ein Baustein, den du per Slash-Command erweitern kannst.
 
-- klassisches Markdown
-- Blockediting mit Slash-Commands
+- Flussorientiertes Schreiben
+- Schnelles Einfügen mit /
+- Markdown bleibt die Quelle; wechsle jederzeit zur Rohansicht
 
-> Der Blockmodus ist absichtlich schlank gehalten und schreibt immer wieder in dieselbe Markdown-Quelle zurueck.
+## Erste Schritte
 
-## Erste Bausteine
-
-1. Markdown direkt bearbeiten
-2. Slash-Menue mit / oeffnen
-3. Dokument als Datei exportieren
+1. Schreibe einfach los — jeder Absatz wird ein Block.
+2. Nutze / um Inhalte einzufügen.
+3. Exportiere das Dokument als Markdown-Datei
 
 ---
 
-- [ ] Offene Aufgabe fuer spaeter
+- [ ] Idee für weitere Abschnitte
 
 \`\`\`js
 export function helloEditor(name) {

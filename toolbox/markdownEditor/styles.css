@@ -203,7 +203,7 @@ body {
 
 .block-list {
   display: grid;
-  gap: var(--space-3);
+  gap: 0.2rem;
 }
 
 .block-editor-actions {
@@ -211,36 +211,100 @@ body {
   justify-content: flex-start;
 }
 
-.block-card {
+.block-row {
   position: relative;
+  padding: 0.25rem 0.4rem;
+  border-radius: 0.9rem;
+}
+
+.block-row:hover,
+.block-row:focus-within {
+  background: color-mix(in srgb, var(--brand-accent) 6%, transparent);
+}
+
+.block-row-active {
+  background: color-mix(in srgb, var(--brand-accent) 8%, transparent);
+}
+
+.block-row-body {
   display: grid;
-  gap: var(--space-2);
-  padding: 0.95rem 1rem 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: 1.1rem;
-  background: var(--editor-bg-strong);
+  align-items: start;
 }
 
-.block-card-active {
-  border-color: var(--brand-accent);
+.block-row-body-list {
+  grid-template-columns: 1.75rem 1fr;
+  gap: 0.6rem;
 }
 
-.block-meta {
+.block-row-chrome {
+  position: absolute;
+  top: -0.6rem;
+  right: 0.05rem;
   display: flex;
-  justify-content: space-between;
-  gap: var(--space-3);
+  gap: 0.35rem;
   align-items: center;
+  padding: 0.15rem 0.25rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--editor-bg-strong) 92%, transparent);
+  opacity: 0;
+  transform: translateY(-2px);
+  pointer-events: none;
+  transition:
+    opacity var(--motion-fast),
+    transform var(--motion-fast),
+    border-color var(--motion-fast);
+}
+
+.block-row:hover .block-row-chrome,
+.block-row:focus-within .block-row-chrome,
+.block-row-active .block-row-chrome {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  border-color: color-mix(in srgb, var(--brand-accent) 20%, transparent);
+}
+
+.block-row-type {
   color: var(--color-text-muted);
-  font-size: 0.82rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+}
+
+.block-row-action {
+  appearance: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 0.25rem 0.65rem;
+  background: var(--color-surface);
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  transition:
+    transform var(--motion-fast),
+    border-color var(--motion-fast),
+    background-color var(--motion-fast);
+}
+
+.block-row-action:hover,
+.block-row-action:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--brand-accent);
+  background: var(--color-surface-strong);
+}
+
+.block-insert-button {
+  padding: 0.25rem 0.55rem;
+  font-family: var(--font-family-heading);
+  font-weight: 700;
 }
 
 .block-input,
 .block-code {
   width: 100%;
   border: 0;
-  padding: 0;
+  padding: 0.25rem 0;
   background: transparent;
   color: var(--color-text);
   resize: none;
@@ -269,16 +333,20 @@ body {
 .block-input-list,
 .block-input-numbered,
 .block-input-todo {
-  padding-left: 2rem;
+  padding-left: 0;
 }
 
 .block-list-symbol {
-  position: absolute;
-  top: 2.4rem;
-  left: 1rem;
+  padding-top: 0.35rem;
   color: var(--brand-accent);
   font-family: var(--font-family-heading);
   font-weight: 700;
+  text-align: right;
+}
+
+.block-todo-checkbox {
+  margin-top: 0.45rem;
+  accent-color: var(--brand-accent);
 }
 
 .block-code {
@@ -293,35 +361,7 @@ body {
   height: 1px;
   border: 0;
   background: color-mix(in srgb, var(--brand-accent) 32%, var(--color-border));
-  margin: 0.35rem 0 0;
-}
-
-.block-footer {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.block-insert-button {
-  appearance: none;
-  border: 1px dashed
-    color-mix(in srgb, var(--brand-accent) 35%, var(--color-border));
-  border-radius: var(--radius-pill);
-  padding: 0.45rem 0.8rem;
-  background: transparent;
-  color: var(--color-text-muted);
-  cursor: pointer;
-  font: inherit;
-  transition:
-    border-color var(--motion-fast),
-    background-color var(--motion-fast),
-    color var(--motion-fast);
-}
-
-.block-insert-button:hover,
-.block-insert-button:focus-visible {
-  border-color: var(--brand-accent);
-  background: rgba(159, 61, 24, 0.08);
-  color: var(--color-text);
+  margin: 0.6rem 0;
 }
 
 .slash-menu {
@@ -464,7 +504,7 @@ body {
     border-radius: 1.25rem;
   }
 
-  .block-card {
+  .block-row {
     padding-inline: 0.85rem;
   }
 }

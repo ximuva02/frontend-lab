@@ -27,21 +27,21 @@ export function HeaderActions({
           className="toggle-chip"
           type="button"
           role="tab"
-          aria-selected=${mode === "markdown"}
-          aria-pressed=${mode === "markdown"}
-          onClick=${() => onModeChange("markdown")}
-        >
-          Markdown
-        </button>
-        <button
-          className="toggle-chip"
-          type="button"
-          role="tab"
           aria-selected=${mode === "blocks"}
           aria-pressed=${mode === "blocks"}
           onClick=${() => onModeChange("blocks")}
         >
           Blockmodus
+        </button>
+        <button
+          className="toggle-chip"
+          type="button"
+          role="tab"
+          aria-selected=${mode === "markdown"}
+          aria-pressed=${mode === "markdown"}
+          onClick=${() => onModeChange("markdown")}
+        >
+          Markdown
         </button>
       </div>
     </div>
