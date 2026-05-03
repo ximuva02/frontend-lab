@@ -1,0 +1,51 @@
+.chatLayout {
+  --chat-layout-border: #d9dee5;
+  display: grid;
+  grid-template-columns: minmax(
+      18rem,
+      var(--chat-layout-left-width, 22rem)
+    ) minmax(0, 1fr);
+  min-height: 36rem;
+  overflow: hidden;
+  border: 1px solid var(--chat-layout-border);
+  border-radius: 0;
+  background: #fff;
+}
+
+.pane {
+  min-width: 0;
+  min-height: 0;
+}
+
+.leftPane {
+  border-right: 1px solid var(--chat-layout-border);
+  background: #f7f8fa;
+}
+
+.rightPane {
+  background: #fff;
+}
+
+@media (max-width: 48rem) {
+  .chatLayout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    min-height: 100dvh;
+    border-radius: 0;
+  }
+
+  .leftPane,
+  .rightPane {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .chatLayout[data-mobile-pane="left"] .rightPane,
+  .chatLayout[data-mobile-pane="right"] .leftPane {
+    display: none;
+  }
+
+  .leftPane {
+    border-right: none;
+  }
+}
