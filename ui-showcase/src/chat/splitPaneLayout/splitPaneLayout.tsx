@@ -1,21 +1,21 @@
 import type { CSSProperties, ReactNode } from "react";
-import styles from "./chatLayout.module.css";
+import styles from "./splitPaneLayout.module.css";
 
 type MobilePane = "left" | "right";
 
-export interface ChatLayoutProps {
+export interface SplitPaneLayoutProps {
   left: ReactNode;
   right: ReactNode;
   leftWidth?: number | string;
   mobilePane?: MobilePane;
 }
 
-const ChatLayout = ({
+const SplitPaneLayout = ({
   left,
   right,
   leftWidth = 360,
   mobilePane = "left",
-}: ChatLayoutProps) => {
+}: SplitPaneLayoutProps) => {
   const style = {
     "--chat-layout-left-width":
       typeof leftWidth === "number" ? `${leftWidth}px` : leftWidth,
@@ -35,4 +35,7 @@ const ChatLayout = ({
   );
 };
 
-export default ChatLayout;
+export type ChatLayoutProps = SplitPaneLayoutProps;
+export const ChatLayout = SplitPaneLayout;
+
+export default SplitPaneLayout;

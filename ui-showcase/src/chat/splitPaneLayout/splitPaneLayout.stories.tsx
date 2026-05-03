@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import ChatLayout from "./chatLayout";
+import SplitPaneLayout from "./splitPaneLayout";
 
 const meta = {
-  title: "Components/ChatLayout",
-  component: ChatLayout,
+  title: "Components/Layout/SplitPaneLayout",
+  component: SplitPaneLayout,
   args: {
     leftWidth: 340,
     mobilePane: "left",
@@ -15,7 +15,7 @@ const meta = {
       options: ["left", "right"],
     },
   },
-} satisfies Meta<typeof ChatLayout>;
+} satisfies Meta<typeof SplitPaneLayout>;
 
 export default meta;
 
@@ -63,6 +63,6 @@ export const Default: Story = {
     right: null,
   },
   render: (args) => (
-    <ChatLayout {...args} left={<LeftArea />} right={<RightArea />} />
+    <SplitPaneLayout {...args} left={<LeftArea />} right={<RightArea />} />
   ),
 };

@@ -1,0 +1,65 @@
+.chatPanel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.header {
+  flex-shrink: 0;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.contentFrame {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.contentArea {
+  min-height: 0;
+  overflow: auto;
+  display: grid;
+  align-content: end;
+  gap: 0.75rem;
+  height: 100%;
+}
+
+.scrollContent {
+  min-height: 0;
+}
+
+.jumpToEnd {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.jumpToEnd > * {
+  pointer-events: auto;
+}
+
+.jumpToEndButton {
+  border: 1px solid #b8c4d0;
+  border-radius: 50%;
+  background: #ffffff;
+  inline-size: 2.25rem;
+  block-size: 2.25rem;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  color: #2a3e52;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.chatBar {
+  flex-shrink: 0;
+  border-top: 1px solid #d9d9d9;
+}
