@@ -1,2 +1,6 @@
 @import "./theme.css";
 @import "./utilities.css";
+
+* {
+  font-family: sans-serif;
+}

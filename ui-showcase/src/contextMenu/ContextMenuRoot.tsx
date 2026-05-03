@@ -2,7 +2,7 @@ import { useRef } from "react";
 
 import { ContextMenuContext } from "./contextMenu.context";
 import {
-  useContextMenuFocusManagement,
+  // useContextMenuFocusManagement,
   useContextMenuOpenState,
   useContextMenuPositioning,
   useContextMenuRegistry,
@@ -12,7 +12,8 @@ import type { ContextMenuRootProps } from "./contextMenu.types";
 
 export function ContextMenuRoot({ children }: ContextMenuRootProps) {
   const menuRef = useRef<HTMLDivElement | null>(null);
-  const { closeMenu, open, restoreFocusRef, setOpen } = useContextMenuOpenState();
+  const { closeMenu, open, restoreFocusRef, setOpen } =
+    useContextMenuOpenState();
   const {
     floatingStyles,
     openAtPoint,
@@ -27,7 +28,7 @@ export function ContextMenuRoot({ children }: ContextMenuRootProps) {
   });
   const { actionsRef, registerAction } = useContextMenuRegistry();
 
-  useContextMenuFocusManagement({ menuRef, open, restoreFocusRef, update });
+  // useContextMenuFocusManagement({ menuRef, open, restoreFocusRef, update });
   useContextMenuShortcuts({ actionsRef, targetRef });
 
   return (

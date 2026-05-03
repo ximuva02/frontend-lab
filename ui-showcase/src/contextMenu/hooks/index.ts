@@ -1,4 +1,4 @@
-export { useContextMenuFocusManagement } from "./useContextMenuFocusManagement";
+// export { useContextMenuFocusManagement } from "./useContextMenuFocusManagement";
 export { useContextMenuOpenState } from "./useContextMenuOpenState";
 export { useContextMenuPositioning } from "./useContextMenuPositioning";
 export { useContextMenuRegistry } from "./useContextMenuRegistry";

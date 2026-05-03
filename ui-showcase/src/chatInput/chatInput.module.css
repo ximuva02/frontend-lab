@@ -1,0 +1,62 @@
+.chatInput {
+  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+
+  border-radius: 25px;
+  box-shadow:
+    rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+    rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+    rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+    rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+    rgba(0, 0, 0, 0.04) 0px 3px 6px 0px,
+    rgba(0, 0, 0, 0.04) 0px 4px 80px 8px,
+    rgba(0, 0, 0, 0.62) 0px 0px 1px 0px;
+}
+
+.input {
+  flex: 1;
+  padding: 8px;
+  width: 100%;
+  outline: none;
+  min-height: 1.6em;
+  max-height: 220px;
+  overflow-y: hidden;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+  resize: none;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+}
+
+.input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.inputWithHeading::first-line {
+  font-weight: 700;
+  font-size: calc(0.95rem + 2px);
+}
+
+.chatInput input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.chatInput > button {
+  padding: 8px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.chatInput > button:hover {
+  background-color: #0056b3;
+}
