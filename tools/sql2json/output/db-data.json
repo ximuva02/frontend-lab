@@ -1,0 +1,282 @@
+{
+  "customers": [
+    {
+      "customer_id": 1,
+      "full_name": "Lena Hoffmann",
+      "email": "lena.hoffmann@example.com",
+      "city": "Berlin",
+      "signup_date": "2025-01-12",
+      "is_active": true
+    },
+    {
+      "customer_id": 2,
+      "full_name": "Jonas Weber",
+      "email": "jonas.weber@example.com",
+      "city": "Hamburg",
+      "signup_date": "2025-02-03",
+      "is_active": true
+    },
+    {
+      "customer_id": 3,
+      "full_name": "Sofia Klein",
+      "email": "sofia.klein@example.com",
+      "city": "Muenchen",
+      "signup_date": "2025-03-18",
+      "is_active": true
+    },
+    {
+      "customer_id": 4,
+      "full_name": "Mika Neumann",
+      "email": "mika.neumann@example.com",
+      "city": "Koeln",
+      "signup_date": "2025-04-07",
+      "is_active": false
+    },
+    {
+      "customer_id": 5,
+      "full_name": "Emma Schuster",
+      "email": "emma.schuster@example.com",
+      "city": "Leipzig",
+      "signup_date": "2025-04-30",
+      "is_active": true
+    },
+    {
+      "customer_id": 6,
+      "full_name": "Noah Richter",
+      "email": "noah.richter@example.com",
+      "city": "Stuttgart",
+      "signup_date": "2025-05-22",
+      "is_active": true
+    }
+  ],
+  "products": [
+    {
+      "product_id": 101,
+      "sku": "LP-1001",
+      "product_name": "Laptop Pro 14",
+      "category": "Electronics",
+      "price": 1399,
+      "stock": 25
+    },
+    {
+      "product_id": 102,
+      "sku": "MN-2003",
+      "product_name": "Monitor 27 Zoll",
+      "category": "Electronics",
+      "price": 329.9,
+      "stock": 48
+    },
+    {
+      "product_id": 103,
+      "sku": "KB-3140",
+      "product_name": "Mechanical Keyboard",
+      "category": "Accessories",
+      "price": 119.5,
+      "stock": 120
+    },
+    {
+      "product_id": 104,
+      "sku": "MS-4407",
+      "product_name": "Wireless Mouse",
+      "category": "Accessories",
+      "price": 54.99,
+      "stock": 210
+    },
+    {
+      "product_id": 105,
+      "sku": "CH-5501",
+      "product_name": "Office Chair Ergo",
+      "category": "Furniture",
+      "price": 289,
+      "stock": 36
+    },
+    {
+      "product_id": 106,
+      "sku": "DS-7802",
+      "product_name": "USB-C Docking Station",
+      "category": "Accessories",
+      "price": 179.9,
+      "stock": 67
+    },
+    {
+      "product_id": 107,
+      "sku": "TB-9002",
+      "product_name": "Tablet 11",
+      "category": "Electronics",
+      "price": 599,
+      "stock": 40
+    },
+    {
+      "product_id": 108,
+      "sku": "HD-1107",
+      "product_name": "External SSD 1TB",
+      "category": "Storage",
+      "price": 129,
+      "stock": 95
+    }
+  ],
+  "orders": [
+    {
+      "order_id": 10001,
+      "customer_id": 1,
+      "order_date": "2026-01-10",
+      "status": "shipped",
+      "shipping_city": "Berlin"
+    },
+    {
+      "order_id": 10002,
+      "customer_id": 2,
+      "order_date": "2026-01-12",
+      "status": "processing",
+      "shipping_city": "Hamburg"
+    },
+    {
+      "order_id": 10003,
+      "customer_id": 1,
+      "order_date": "2026-01-19",
+      "status": "delivered",
+      "shipping_city": "Berlin"
+    },
+    {
+      "order_id": 10004,
+      "customer_id": 3,
+      "order_date": "2026-02-02",
+      "status": "cancelled",
+      "shipping_city": "Muenchen"
+    },
+    {
+      "order_id": 10005,
+      "customer_id": 5,
+      "order_date": "2026-02-14",
+      "status": "delivered",
+      "shipping_city": "Leipzig"
+    },
+    {
+      "order_id": 10006,
+      "customer_id": 6,
+      "order_date": "2026-02-20",
+      "status": "processing",
+      "shipping_city": "Stuttgart"
+    },
+    {
+      "order_id": 10007,
+      "customer_id": 2,
+      "order_date": "2026-03-03",
+      "status": "shipped",
+      "shipping_city": "Hamburg"
+    },
+    {
+      "order_id": 10008,
+      "customer_id": 4,
+      "order_date": "2026-03-11",
+      "status": "returned",
+      "shipping_city": "Koeln"
+    }
+  ],
+  "order_items": [
+    {
+      "order_item_id": 1,
+      "order_id": 10001,
+      "product_id": 101,
+      "quantity": 1,
+      "unit_price": 1399,
+      "discount_percent": 0
+    },
+    {
+      "order_item_id": 2,
+      "order_id": 10001,
+      "product_id": 103,
+      "quantity": 1,
+      "unit_price": 119.5,
+      "discount_percent": 10
+    },
+    {
+      "order_item_id": 3,
+      "order_id": 10002,
+      "product_id": 102,
+      "quantity": 2,
+      "unit_price": 329.9,
+      "discount_percent": 5
+    },
+    {
+      "order_item_id": 4,
+      "order_id": 10002,
+      "product_id": 104,
+      "quantity": 2,
+      "unit_price": 54.99,
+      "discount_percent": 0
+    },
+    {
+      "order_item_id": 5,
+      "order_id": 10003,
+      "product_id": 108,
+      "quantity": 1,
+      "unit_price": 129,
+      "discount_percent": 0
+    },
+    {
+      "order_item_id": 6,
+      "order_id": 10003,
+      "product_id": 106,
+      "quantity": 1,
+      "unit_price": 179.9,
+      "discount_percent": 15
+    },
+    {
+      "order_item_id": 7,
+      "order_id": 10004,
+      "product_id": 107,
+      "quantity": 1,
+      "unit_price": 599,
+      "discount_percent": 0
+    },
+    {
+      "order_item_id": 8,
+      "order_id": 10005,
+      "product_id": 105,
+      "quantity": 1,
+      "unit_price": 289,
+      "discount_percent": 8.5
+    },
+    {
+      "order_item_id": 9,
+      "order_id": 10005,
+      "product_id": 104,
+      "quantity": 1,
+      "unit_price": 54.99,
+      "discount_percent": 0
+    },
+    {
+      "order_item_id": 10,
+      "order_id": 10006,
+      "product_id": 106,
+      "quantity": 2,
+      "unit_price": 179.9,
+      "discount_percent": 5
+    },
+    {
+      "order_item_id": 11,
+      "order_id": 10007,
+      "product_id": 103,
+      "quantity": 3,
+      "unit_price": 119.5,
+      "discount_percent": 12
+    },
+    {
+      "order_item_id": 12,
+      "order_id": 10007,
+      "product_id": 108,
+      "quantity": 2,
+      "unit_price": 129,
+      "discount_percent": 0
+    },
+    {
+      "order_item_id": 13,
+      "order_id": 10008,
+      "product_id": 102,
+      "quantity": 1,
+      "unit_price": 329.9,
+      "discount_percent": 0
+    }
+  ]
+}

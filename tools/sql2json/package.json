@@ -1,0 +1,24 @@
+{
+  "name": "sqltransformer",
+  "version": "1.0.0",
+  "description": "SQL to JSON transformer with optional API mapping",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "sql-transformer": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "transform": "npm run build && node dist/cli.js",
+    "transform:sample": "npm run transform -- --input input/testdata.sql --out-raw output/db-data.json --out-mapped output/api-data.json --mapping input/mapping.example.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sql-parser": "^5.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.18",
+    "typescript": "^5.8.3"
+  }
+}
