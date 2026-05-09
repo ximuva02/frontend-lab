@@ -42,13 +42,12 @@ module.exports = {
     };
   },
 
-  // $postProcess(mapped) {
-  //     // Optional projection for API-like grouped payloads.
+  //   $postProcess(mapped) {
   //     return {
-  //         entities: mapped,
-  //         meta: {
-  //             generatedAt: new Date().toISOString()
-  //         }
+  //       entities: mapped,
+  //       meta: {
+  //         generatedAt: new Date().toISOString(),
+  //       },
   //     };
-  // }
+  //   },
 };

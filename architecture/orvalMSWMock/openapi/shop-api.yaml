@@ -1,0 +1,211 @@
+openapi: 3.0.3
+info:
+  title: SQL2JSON Showcase API
+  version: 0.1.0
+  description: |
+    Example API for the Orval + MSW proof of concept.
+    Structure is inspired by customer, product and order test data.
+servers:
+  - url: /api
+tags:
+  - name: customers
+  - name: products
+  - name: orders
+  - name: metrics
+paths:
+  /customers:
+    get:
+      tags: [customers]
+      operationId: listCustomers
+      summary: List all customers
+      responses:
+        "200":
+          description: Customers list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Customer"
+                  meta:
+                    $ref: "#/components/schemas/Meta"
+                required: [data, meta]
+  /products:
+    get:
+      tags: [products]
+      operationId: listProducts
+      summary: List all products
+      responses:
+        "200":
+          description: Products list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Product"
+                  meta:
+                    $ref: "#/components/schemas/Meta"
+                required: [data, meta]
+  /orders:
+    get:
+      tags: [orders]
+      operationId: listOrders
+      summary: List all orders
+      parameters:
+        - in: query
+          name: customerId
+          schema:
+            type: integer
+          required: false
+      responses:
+        "200":
+          description: Orders list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Order"
+                  meta:
+                    $ref: "#/components/schemas/Meta"
+                required: [data, meta]
+  /metrics:
+    get:
+      tags: [metrics]
+      operationId: listMetrics
+      summary: Get aggregated showcase metrics
+      responses:
+        "200":
+          description: Aggregated metrics object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Metrics"
+                  meta:
+                    $ref: "#/components/schemas/Meta"
+                required: [data, meta]
+components:
+  schemas:
+    Meta:
+      type: object
+      properties:
+        generatedAt:
+          type: string
+          format: date-time
+      required: [generatedAt]
+    Customer:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        location:
+          type: string
+        active:
+          type: boolean
+        createdAt:
+          type: string
+          format: date
+      required: [id, name, email, location, active, createdAt]
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+        sku:
+          type: string
+        name:
+          type: string
+        category:
+          type: string
+        unitPrice:
+          type: number
+          format: float
+        stock:
+          type: integer
+      required: [id, sku, name, category, unitPrice, stock]
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+        customerId:
+          type: integer
+        createdAt:
+          type: string
+          format: date
+        state:
+          type: string
+          enum: [processing, shipped, delivered, cancelled, returned]
+        shippingCity:
+          type: string
+      required: [id, customerId, createdAt, state, shippingCity]
+    StateMetric:
+      type: object
+      properties:
+        state:
+          type: string
+          enum: [processing, shipped, delivered, cancelled, returned]
+        count:
+          type: integer
+      required: [state, count]
+    CityMetric:
+      type: object
+      properties:
+        city:
+          type: string
+        count:
+          type: integer
+      required: [city, count]
+    Metrics:
+      type: object
+      properties:
+        totalCustomers:
+          type: integer
+        activeCustomers:
+          type: integer
+        totalProducts:
+          type: integer
+        totalOrders:
+          type: integer
+        totalInventory:
+          type: integer
+        averageProductPrice:
+          type: number
+          format: float
+        ordersByState:
+          type: array
+          items:
+            $ref: "#/components/schemas/StateMetric"
+        topShippingCities:
+          type: array
+          items:
+            $ref: "#/components/schemas/CityMetric"
+      required:
+        [
+          totalCustomers,
+          activeCustomers,
+          totalProducts,
+          totalOrders,
+          totalInventory,
+          averageProductPrice,
+          ordersByState,
+          topShippingCities,
+        ]

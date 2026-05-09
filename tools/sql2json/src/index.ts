@@ -1,6 +1,7 @@
 export { createDefaultCliArgs, parseArgs } from "./lib/args";
 export { writeJson } from "./lib/io";
 export { getTableName, parseInsertStatements } from "./lib/sql";
+export { transformSqlFromFiles } from "./lib/files";
 export { applyMapping, loadMapping, transformSql } from "./lib/transforming";
 export type {
   CliArgs,

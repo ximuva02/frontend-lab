@@ -1,0 +1,45 @@
+{
+  "name": "orvalmswmock",
+  "private": true,
+  "version": "0.0.0",
+  "description": "PoC for OpenAPI generation with Orval and API mocking with MSW",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run generate:mock-data && vite",
+    "start": "npm run dev",
+    "build": "npm run generate:mock-data && tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "transform:single-file": "sql-transformer --input mockData/input/testdata.sql --mapping mockData/input/testdata.mapping.cjs --out-mapped mockData/mocks/data.json",
+    "generate:mock-data": "node mockData/scripts/generate-mock-data.mjs",
+    "generate:api": "orval --config orval.config.ts",
+    "mock:init": "msw init public --save"
+  },
+  "dependencies": {
+    "msw": "^2.14.5",
+    "sqltransformer": "file:../../tools/sql2json",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@faker-js/faker": "^10.4.0",
+    "@types/node": "^24.12.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "eslint": "^10.2.1",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.5.0",
+    "orval": "^8.9.1",
+    "typescript": "~6.0.2",
+    "typescript-eslint": "^8.58.2",
+    "vite": "^8.0.10"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  }
+}
