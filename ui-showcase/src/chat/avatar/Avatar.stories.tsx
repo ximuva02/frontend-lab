@@ -1,7 +1,7 @@
 import Avatar, { type AvatarProps } from "./Avatar";
 
 export default {
-  title: "Components/Avatar",
+  title: "Components/Chat/Avatar",
   component: Avatar,
   args: {
     title: "John Doe",

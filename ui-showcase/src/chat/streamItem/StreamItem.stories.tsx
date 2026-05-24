@@ -1,7 +1,7 @@
 import StreamItem from "./StreamItem";
 
 export default {
-  title: "Components/StreamItem",
+  title: "Components/Chat/StreamItem",
   component: StreamItem,
 };
 

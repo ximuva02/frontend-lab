@@ -17,7 +17,7 @@ export const StructureOnly: Story = {
   args: {
     header: null,
     content: null,
-    chatBar: null,
+    footer: null,
   },
   render: () => (
     <div style={{ height: "100vh", padding: "1rem", background: "#f0f2f5" }}>
@@ -52,7 +52,7 @@ export const StructureOnly: Story = {
               SCROLLABLE CONTENT AREA
             </div>
           }
-          chatBar={
+          footer={
             <div
               style={{
                 minHeight: "4.5rem",
@@ -63,7 +63,7 @@ export const StructureOnly: Story = {
                 fontWeight: 600,
               }}
             >
-              FIXED CHATBAR
+              FIXED FOOTER
             </div>
           }
         />

@@ -6,15 +6,17 @@ import { ArrowDown } from "lucide-react";
 import { Button } from "@base-ui/react";
 
 export interface ScrollViewportPanelProps {
-  header: ReactNode;
-  content: ReactNode;
-  chatBar: ReactNode;
+  header?: ReactNode;
+  content?: ReactNode;
+  children?: ReactNode;
+  footer?: ReactNode;
 }
 
 const ScrollViewportPanel = ({
   header,
   content,
-  chatBar,
+  children,
+  footer,
 }: ScrollViewportPanelProps) => {
   const contentAreaRef = useRef<HTMLDivElement | null>(null);
   const [showJumpToEnd, setShowJumpToEnd] = useState(false);
@@ -58,7 +60,7 @@ const ScrollViewportPanel = ({
           onScroll={updateJumpVisibility}
           ref={contentAreaRef}
         >
-          <div className={styles.scrollContent}>{content}</div>
+          <div className={styles.scrollContent}>{content || children}</div>
         </div>
         {showJumpToEnd ? (
           <div className={styles.jumpToEnd}>
@@ -74,7 +76,7 @@ const ScrollViewportPanel = ({
         ) : null}
       </div>
 
-      <footer className={styles.chatBar}>{chatBar}</footer>
+      {footer && <footer className={styles.footer}>{footer}</footer>}
     </section>
   );
 };

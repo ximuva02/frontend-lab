@@ -1,0 +1,7 @@
+.stream {
+  color: var(--text-color);
+  background: var(--field-background);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  /* padding: var(--spacing-4); */
+}

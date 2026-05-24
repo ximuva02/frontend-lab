@@ -2,7 +2,7 @@ import ChatInput from "./chatInput";
 import ContextButton from "./contextButton";
 
 export default {
-  title: "Components/ChatInput",
+  title: "Components/Chat/ChatInput",
   component: ChatInput,
 };
 

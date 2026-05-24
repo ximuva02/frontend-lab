@@ -1,7 +1,7 @@
 import LastUpdated from "./LastUpdated";
 
 export default {
-  title: "Components/LastUpdated",
+  title: "Components/Chat/LastUpdated",
   component: LastUpdated,
 };
 
