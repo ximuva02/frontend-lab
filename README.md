@@ -4,6 +4,12 @@ Dieses Repository ist ein kuratierter Frontend-Showcase.
 
 Themen, Fragestellungen und Umsetzungen aus dem Arbeitsalltag, die ich hier strukturiert festhalte und weiterentwickle. Der Fokus liegt nicht auf einer einzelnen App, sondern auf wiederverwendbaren Konzepten, Architekturentscheidungen und UI-Bausteinen, die in echten Produktkontexten relevant sind.
 
+## Skills
+
+Fuer haeufige Aufgaben gibt es eigene Skills.
+
+- [base-ui-component-skeleton](.github/skills/base-ui-component-skeleton/SKILL.md): Erstellt ein minimales UI-Komponenten-Skeleton (TSX + CSS Module + Story) mit konsistenter Ordnerstruktur.
+
 ## Aufbau
 
 Das Repository ist in drei Bereiche gegliedert:
