@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import type { StreamItemProps } from "../streamItem/StreamItem";
+import type { StreamItemData } from "../streamItem/StreamItem";
 import {
   streamGroups,
   streamIdeas,
@@ -43,13 +43,10 @@ const compactTitle = () => {
   return faker.helpers.arrayElement(streamIdeas);
 };
 
-export const createStreamMockItems = (
-  count = 20,
-): Array<StreamItemProps & { id: string }> =>
+export const createStreamMockItems = (count = 20): StreamItemData[] =>
   Array.from({ length: count }, () => ({
-    id: faker.string.uuid(),
     avatarUrl: undefined,
     title: compactTitle(),
     description: compactDescription(),
-    lastUpdated: faker.date.recent({ days: 15 }),
+    lastUpdated: Math.floor(faker.date.recent({ days: 15 }).getTime() / 1000),
   }));

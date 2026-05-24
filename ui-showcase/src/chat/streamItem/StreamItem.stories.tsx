@@ -5,4 +5,4 @@ export default {
   component: StreamItem,
 };
 
-export const Default = () => <StreamItem />;
+export const Default = () => <StreamItem.Root />;

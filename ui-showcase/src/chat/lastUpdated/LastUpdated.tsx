@@ -13,7 +13,7 @@ const toDate = (value: LastUpdatedValue): Date | null => {
   }
 
   if (typeof value === "number") {
-    const parsedNumberDate = new Date(value);
+    const parsedNumberDate = new Date(value * 1000);
     return isValid(parsedNumberDate) ? parsedNumberDate : null;
   }
 

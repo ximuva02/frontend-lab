@@ -9,25 +9,37 @@ export type StreamItemProps = {
   lastUpdated?: LastUpdatedValue;
 };
 
-const StreamItem = ({
+export type StreamItemData = Omit<StreamItemProps, "title" | "lastUpdated"> & {
+  title: string;
+  lastUpdated: number;
+};
+
+export type StreamItemRootProps = StreamItemProps;
+
+const StreamItemRoot = ({
   avatarUrl,
   title = "John Doe",
-  description = "Hello, this is a stream item!",
+  description,
   lastUpdated = new Date(),
-}: StreamItemProps) => {
+}: StreamItemRootProps) => {
   return (
     <div className={styles.streamItem}>
       <Avatar avatarUrl={avatarUrl} title={title} />
       <div className={styles.content}>
         <div className={styles.title}>{title}</div>
-        <div className={styles.description}>{description}</div>
+        {description ? (
+          <div className={styles.description}>{description}</div>
+        ) : null}
       </div>
-
       <div className={styles.actions}>
         <LastUpdated value={lastUpdated} />
       </div>
     </div>
   );
 };
+
+const StreamItem = Object.assign(StreamItemRoot, {
+  Root: StreamItemRoot,
+});
 
 export default StreamItem;
