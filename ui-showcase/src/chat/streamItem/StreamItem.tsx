@@ -2,7 +2,7 @@ import styles from "./StreamItem.module.css";
 import Avatar from "../avatar/Avatar";
 import LastUpdated, { type LastUpdatedValue } from "../lastUpdated/LastUpdated";
 
-type StreamItemProps = {
+export type StreamItemProps = {
   avatarUrl?: string;
   title?: string;
   description?: string;
