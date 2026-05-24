@@ -1,0 +1,33 @@
+.streamItem {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: var(--spacing-2);
+  gap: var(--spacing-4);
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.description {
+  color: var(--text-color-secondary);
+  font-size: 0.875rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.actions {
+  margin-left: auto;
+  flex-shrink: 0;
+  color: var(--text-color-secondary);
+  font-size: 0.75rem;
+}
