@@ -1,62 +1,59 @@
 .chatInput {
   display: flex;
   align-items: flex-end;
-  padding: 10px;
-
-  border-radius: 25px;
-  box-shadow:
-    rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-    rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-    rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-    rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-    rgba(0, 0, 0, 0.04) 0px 3px 6px 0px,
-    rgba(0, 0, 0, 0.04) 0px 4px 80px 8px,
-    rgba(0, 0, 0, 0.62) 0px 0px 1px 0px;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  background: var(--field-background);
+  color: var(--text-color);
+  box-shadow: var(--popover-shadow);
 }
 
 .input {
   flex: 1;
-  padding: 8px;
+  padding: var(--spacing-2);
   width: 100%;
   outline: none;
   min-height: 1.6em;
   max-height: 220px;
   overflow-y: hidden;
-  font-size: 0.95rem;
+  font-size: var(--font-size-lg);
   line-height: 1.55;
   white-space: pre-wrap;
   word-break: break-word;
   resize: none;
   border: none;
   background: transparent;
+  color: var(--field-text-color);
   font-family: inherit;
 }
 
 .input::placeholder {
-  color: rgba(0, 0, 0, 0.4);
+  color: var(--text-color-placeholder);
 }
 
 .inputWithHeading::first-line {
   font-weight: 700;
-  font-size: calc(0.95rem + 2px);
+  font-size: calc(var(--font-size-lg) + 2px);
 }
 
 .chatInput input {
   flex: 1;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: var(--spacing-2);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
 }
 
 .chatInput > button {
-  padding: 8px;
-  background-color: #007bff;
-  color: white;
+  padding: var(--spacing-2);
+  background-color: var(--highlight-background);
+  color: var(--highlight-foreground);
   border: none;
   border-radius: 50%;
   cursor: pointer;
 }
 
 .chatInput > button:hover {
-  background-color: #0056b3;
+  background-color: var(--highlight-background-pressed);
 }

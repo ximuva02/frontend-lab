@@ -1,7 +1,7 @@
 .tagGroup {
   display: flex;
   flex-direction: column;
-  font: var(--font-size) system-ui;
+  font: var(--font-size) var(--font-family-base);
   color: var(--text-color);
 
   [slot="errorMessage"] {
@@ -25,7 +25,7 @@
   border-radius: 9999px;
   height: var(--spacing-5);
   padding: 0 var(--spacing-3);
-  font: var(--font-size-sm) system-ui;
+  font: var(--font-size-sm) var(--font-family-base);
   cursor: default;
   display: flex;
   align-items: center;
