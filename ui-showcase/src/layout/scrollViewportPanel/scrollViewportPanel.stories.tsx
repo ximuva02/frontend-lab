@@ -13,61 +13,85 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const StructureOnly: Story = {
+const renderPanel = (jumpDirection: "down" | "up" | "none") => (
+  <div style={{ height: "100vh", padding: "1rem", background: "#f0f2f5" }}>
+    <div style={{ height: "100%", border: "1px solid #d9d9d9" }}>
+      <ScrollViewportPanel
+        jumpDirection={jumpDirection}
+        header={
+          <div
+            style={{
+              minHeight: "3.5rem",
+              display: "grid",
+              placeItems: "center",
+              background: "#dceeff",
+              color: "#1d3d5c",
+              fontWeight: 600,
+            }}
+          >
+            HEADER
+          </div>
+        }
+        content={
+          <div
+            style={{
+              minHeight: "120vh",
+              display: "grid",
+              placeItems: "center",
+              borderRadius: "0.5rem",
+              background: "#f8f0de",
+              color: "#6a4b1e",
+              fontWeight: 600,
+            }}
+          >
+            SCROLLABLE CONTENT AREA
+          </div>
+        }
+        footer={
+          <div
+            style={{
+              minHeight: "4.5rem",
+              display: "grid",
+              placeItems: "center",
+              background: "#ddeed6",
+              color: "#2f5226",
+              fontWeight: 600,
+            }}
+          >
+            FIXED FOOTER
+          </div>
+        }
+      />
+    </div>
+  </div>
+);
+
+export const JumpDown: Story = {
   args: {
     header: null,
     content: null,
     footer: null,
+    jumpDirection: "down",
   },
-  render: () => (
-    <div style={{ height: "100vh", padding: "1rem", background: "#f0f2f5" }}>
-      <div style={{ height: "100%", border: "1px solid #d9d9d9" }}>
-        <ScrollViewportPanel
-          header={
-            <div
-              style={{
-                minHeight: "3.5rem",
-                display: "grid",
-                placeItems: "center",
-                background: "#dceeff",
-                color: "#1d3d5c",
-                fontWeight: 600,
-              }}
-            >
-              HEADER
-            </div>
-          }
-          content={
-            <div
-              style={{
-                minHeight: "120vh",
-                display: "grid",
-                placeItems: "center",
-                borderRadius: "0.5rem",
-                background: "#f8f0de",
-                color: "#6a4b1e",
-                fontWeight: 600,
-              }}
-            >
-              SCROLLABLE CONTENT AREA
-            </div>
-          }
-          footer={
-            <div
-              style={{
-                minHeight: "4.5rem",
-                display: "grid",
-                placeItems: "center",
-                background: "#ddeed6",
-                color: "#2f5226",
-                fontWeight: 600,
-              }}
-            >
-              FIXED FOOTER
-            </div>
-          }
-        />
-      </div>
-    </div>
-  ),
+  render: () => renderPanel("down"),
+};
+
+export const JumpUp: Story = {
+  args: {
+    header: null,
+    content: null,
+    footer: null,
+    jumpDirection: "up",
+  },
+  render: () => renderPanel("up"),
+};
+
+export const JumpNone: Story = {
+  args: {
+    header: null,
+    content: null,
+    footer: null,
+    jumpDirection: "none",
+  },
+  render: () => renderPanel("none"),
 };

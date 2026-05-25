@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import StreamItem, { type StreamItemData } from "../streamItem/StreamItem";
-import ScrollViewportPanel from "../../layout/scrollViewportPanel/scrollViewportPanel";
+import ScrollViewportPanel, {
+  type ScrollViewportPanelJumpDirection,
+} from "../../layout/scrollViewportPanel/scrollViewportPanel";
 
 export interface StreamItemsProps {
   items?: StreamItemData[];
@@ -11,6 +13,7 @@ export interface StreamRootProps extends StreamItemsProps {
   children?: React.ReactNode;
   header?: ReactNode;
   footer?: ReactNode;
+  jumpDirection?: ScrollViewportPanelJumpDirection;
 }
 
 const StreamItems = ({ items = [], sortOrder = "desc" }: StreamItemsProps) => {
@@ -33,6 +36,7 @@ const StreamRoot = ({
   header = <div>Header</div>,
   footer = <div>footer Bar</div>,
   sortOrder = "desc",
+  jumpDirection,
 }: StreamRootProps) => {
   const content = items ? (
     <StreamItems items={items} sortOrder={sortOrder} />
@@ -40,8 +44,16 @@ const StreamRoot = ({
     children
   );
 
+  const effectiveJumpDirection =
+    jumpDirection ?? (sortOrder === "desc" ? "up" : "down");
+
   return (
-    <ScrollViewportPanel content={content} header={header} footer={footer} />
+    <ScrollViewportPanel
+      content={content}
+      header={header}
+      footer={footer}
+      jumpDirection={effectiveJumpDirection}
+    />
   );
 };
 
