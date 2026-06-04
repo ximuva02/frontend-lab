@@ -11,7 +11,6 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "transform:single-file": "sql-transformer --input mockData/input/testdata.sql --mapping mockData/input/testdata.mapping.cjs --out-mapped mockData/mocks/data.json",
-    "generate:mock-data": "node mockData/scripts/generate-mock-data.mjs",
     "generate:api": "orval --config orval.config.ts",
     "mock:init": "msw init public --save"
   },

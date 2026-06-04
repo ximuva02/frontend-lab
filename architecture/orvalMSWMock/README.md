@@ -5,7 +5,7 @@ Dieses Verzeichnis enthaelt ein kleines Testprojekt, das zeigt:
 - OpenAPI-Spezifikation als Quelle
 - Orval generiert daraus einen TypeScript-Client
 - MSW mocked dieselben Endpunkte im Browser fuer lokale Entwicklung
-- ein zusaetzlicher Beispiel-Endpunkt `/metrics` liefert aggregierte, aus SQL-Daten abgeleitete Kennzahlen
+- transformieren von SQL Daten inkl. Mapping auf Response um definierte Daten aus E2E Test weiterzuverwenden
 
 ## Projektstruktur
 
@@ -69,8 +69,3 @@ Dann werden echte HTTP-Requests gegen den konfigurierten API-Server gesendet (hi
 - Endpoint: `GET /api/metrics`
 - Quelle: aus `customers`, `products` und `orders` berechnete Daten aus `mockData/mocks/data.ts`
 - Inhalt: Summen, Durchschnittspreis, Orders nach Status, Top-Shipping-Cities
-
-## Anmerkung zu den Input-Daten
-
-Die Domaintypen und Felder orientieren sich an den Beispieldaten aus `tools/sql2json/input`.
-Das PoC ist bewusst kompakt gehalten und kann spaeter auf die echten Transformationsoutputs erweitert werden.
