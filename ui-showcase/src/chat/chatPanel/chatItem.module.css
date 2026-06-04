@@ -1,0 +1,11 @@
+.chatItem {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--base-border-default, #e0e0e0);
+  display: flex;
+  gap: 12px;
+  width: 100%;
+
+  & > :first-child {
+    flex: 1;
+  }
+}

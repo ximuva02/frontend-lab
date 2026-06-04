@@ -6,9 +6,16 @@ import { useStructuredChatInput } from "./hooks/useStructuredChatInput";
 interface ChatInputProps {
   leadingActions?: React.ReactNode;
   trailingActions?: React.ReactNode;
+  onSend?: (message: string) => void;
 }
 
-const ChatInput = ({ leadingActions, trailingActions }: ChatInputProps) => {
+//TODO: onSend format as markdown
+
+const ChatInput = ({
+  leadingActions,
+  trailingActions,
+  onSend,
+}: ChatInputProps) => {
   const { inputRef, value, hasLeadHeading, handleInput, handleKeyDown } =
     useStructuredChatInput();
 
@@ -29,7 +36,7 @@ const ChatInput = ({ leadingActions, trailingActions }: ChatInputProps) => {
       {trailingActions && (
         <div className={styles.trailingActions}>{trailingActions}</div>
       )}
-      <Button>
+      <Button onClick={() => onSend && onSend(value)}>
         <Send size={14} />
       </Button>
     </div>
