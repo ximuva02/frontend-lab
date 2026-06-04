@@ -49,11 +49,12 @@ const StreamRoot = ({
 
   return (
     <ScrollViewportPanel
-      content={content}
       header={header}
       footer={footer}
       jumpDirection={effectiveJumpDirection}
-    />
+    >
+      {content}
+    </ScrollViewportPanel>
   );
 };
 
